@@ -1,0 +1,257 @@
+ => ERROR [5/3] RUN if grep -Eqx 'apache-airflow\s*[=~>]{1,2}.*' requirements.txt; then     echo >&2 "Do not upgrade by specifying 'apache-airflow' in your requirements.txt, change the base im  46.0s
+------                                                                                                                                                                                                  
+ > [5/3] RUN if grep -Eqx 'apache-airflow\s*[=~>]{1,2}.*' requirements.txt; then     echo >&2 "Do not upgrade by specifying 'apache-airflow' in your requirements.txt, change the base image instead!";  exit 1;   fi;   pip install --no-cache-dir -r requirements.txt:                                                                                                                                        
+#9 0.253 + grep -Eqx 'apache-airflow\s*[=~>]{1,2}.*' requirements.txt                                                                                                                                   
+#9 0.255 + pip install --no-cache-dir -r requirements.txt                                                                                                                                               
+#9 0.525 Looking in indexes: https://pip.astronomer.io/v2/                                                                                                                                              
+#9 0.525 Looking in links: https://pip.astronomer.io/simple/astronomer-fab-security-manager/, https://pip.astronomer.io/simple/astronomer-airflow-version-check/
+#9 1.370 Collecting airflow-provider-kafka
+#9 1.839   Downloading airflow_provider_kafka-0.1.1-py3-none-any.whl (18 kB)
+#9 1.877 Requirement already satisfied: asgiref in /usr/local/lib/python3.9/site-packages (from airflow-provider-kafka->-r requirements.txt (line 1)) (3.5.2)
+#9 1.878 Requirement already satisfied: apache-airflow>=2.2.0 in /usr/local/lib/python3.9/site-packages (from airflow-provider-kafka->-r requirements.txt (line 1)) (2.4.3+astro.1)
+#9 2.601 Collecting confluent-kafka>=1.8.2
+#9 42.23   Downloading confluent-kafka-1.9.2.tar.gz (109 kB)
+#9 42.42      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 109.8/109.8 kB 535.8 kB/s eta 0:00:00
+#9 42.44   Preparing metadata (setup.py): started
+#9 42.64   Preparing metadata (setup.py): finished with status 'done'
+#9 43.76 Requirement already satisfied: packaging>=14.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (21.3)
+#9 43.76 Requirement already satisfied: python-dateutil>=2.3 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.8.2)
+#9 43.76 Requirement already satisfied: pyjwt>=2.0.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.4.0)
+#9 43.76 Requirement already satisfied: attrs>=22.1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (22.1.0)
+#9 43.76 Requirement already satisfied: jsonschema>=3.2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.17.0)
+#9 43.76 Requirement already satisfied: mdit-py-plugins>=0.3.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.3.1)
+#9 43.76 Requirement already satisfied: cryptography>=0.9.3 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (36.0.2)
+#9 43.77 Requirement already satisfied: markupsafe>=1.1.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.1)
+#9 43.77 Requirement already satisfied: pendulum>=2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.2)
+#9 43.77 Requirement already satisfied: setproctitle>=1.1.8 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.3.2)
+#9 43.77 Requirement already satisfied: croniter>=0.3.17 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.3.7)
+#9 43.77 Requirement already satisfied: flask-caching>=1.5.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.0.1)
+#9 43.77 Requirement already satisfied: jinja2>=3.0.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.1.2)
+#9 43.77 Requirement already satisfied: pathspec~=0.9.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.9.0)
+#9 43.77 Requirement already satisfied: python-nvd3>=0.15.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.15.0)
+#9 43.77 Requirement already satisfied: cattrs>=22.1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (22.2.0)
+#9 43.77 Requirement already satisfied: pluggy>=1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.0.0)
+#9 43.77 Requirement already satisfied: apache-airflow-providers-common-sql in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.2.0)
+#9 43.77 Requirement already satisfied: lockfile>=0.12.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.12.2)
+#9 43.77 Requirement already satisfied: psutil>=4.2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (5.9.4)
+#9 43.77 Requirement already satisfied: linkify-it-py>=2.0.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.0.0)
+#9 43.77 Requirement already satisfied: marshmallow-oneofschema>=2.0.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.0.1)
+#9 43.77 Requirement already satisfied: flask-wtf>=0.15 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.0.1)
+#9 43.77 Requirement already satisfied: apache-airflow-providers-http in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.0.0)
+#9 43.77 Requirement already satisfied: argcomplete>=1.10 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.0.0)
+#9 43.77 Requirement already satisfied: gunicorn>=20.1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (20.1.0)
+#9 43.77 Requirement already satisfied: flask-session>=0.4.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.4.0)
+#9 43.77 Requirement already satisfied: alembic<2.0,>=1.5.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.8.1)
+#9 43.77 Requirement already satisfied: httpx in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.23.0)
+#9 43.77 Requirement already satisfied: apache-airflow-providers-ftp in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.1.0)
+#9 43.77 Requirement already satisfied: apache-airflow-providers-sqlite in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.2.1)
+#9 43.77 Requirement already satisfied: apache-airflow-providers-imap in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.0.0)
+#9 43.78 Requirement already satisfied: cron-descriptor>=1.2.24 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.2.31)
+#9 43.78 Requirement already satisfied: graphviz>=0.12 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.20.1)
+#9 43.78 Requirement already satisfied: python-daemon>=2.2.4 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.3.2)
+#9 43.78 Requirement already satisfied: configupdater>=3.1.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.1.1)
+#9 43.78 Requirement already satisfied: blinker in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.5)
+#9 43.78 Requirement already satisfied: werkzeug>=2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.2.2)
+#9 43.78 Requirement already satisfied: rich>=12.4.4 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (12.6.0)
+#9 43.78 Requirement already satisfied: colorlog<5.0,>=4.0.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.8.0)
+#9 43.78 Requirement already satisfied: flask-appbuilder==4.1.4 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.1.4)
+#9 43.78 Requirement already satisfied: sqlalchemy>=1.4 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.4.27)
+#9 43.78 Requirement already satisfied: pygments>=2.0.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.13.0)
+#9 43.78 Requirement already satisfied: lazy-object-proxy in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.8.0)
+#9 43.78 Requirement already satisfied: deprecated>=1.2.13 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.2.13)
+#9 43.78 Requirement already satisfied: flask-login>=0.6.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.6.2)
+#9 43.78 Requirement already satisfied: connexion[flask,swagger-ui]>=2.10.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.14.1)
+#9 43.78 Requirement already satisfied: tabulate>=0.7.5 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.9.0)
+#9 43.78 Requirement already satisfied: unicodecsv>=0.14.1 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.14.1)
+#9 43.78 Requirement already satisfied: sqlalchemy-jsonfield>=1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.0.0)
+#9 43.78 Requirement already satisfied: dill>=0.2.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.3.1.1)
+#9 43.78 Requirement already satisfied: itsdangerous>=2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.2)
+#9 43.78 Requirement already satisfied: markdown-it-py>=2.1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.0)
+#9 43.78 Requirement already satisfied: tenacity>=6.2.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (8.1.0)
+#9 43.78 Requirement already satisfied: flask<2.3,>=2.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.2.2)
+#9 43.78 Requirement already satisfied: markdown>=3.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.4.1)
+#9 43.79 Requirement already satisfied: python-slugify>=5.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (6.1.2)
+#9 43.79 Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.4.0)
+#9 43.79 Requirement already satisfied: termcolor>=1.1.0 in /usr/local/lib/python3.9/site-packages (from apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.0)
+#9 43.80 Requirement already satisfied: colorama<1,>=0.3.9 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.4.6)
+#9 43.80 Requirement already satisfied: marshmallow-enum<2,>=1.5.1 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.5.1)
+#9 43.80 Requirement already satisfied: Flask-Babel<3,>=1 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.0.0)
+#9 43.80 Requirement already satisfied: apispec[yaml]<4,>=3.3 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.3.2)
+#9 43.80 Requirement already satisfied: marshmallow<4,>=3 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.18.0)
+#9 43.80 Requirement already satisfied: prison<1.0.0,>=0.2.1 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.2.1)
+#9 43.80 Requirement already satisfied: click<9,>=8 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (8.1.3)
+#9 43.80 Requirement already satisfied: Flask-JWT-Extended<5.0.0,>=4.0.0 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (4.4.4)
+#9 43.80 Requirement already satisfied: WTForms<4 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.0.1)
+#9 43.80 Requirement already satisfied: sqlalchemy-utils<1,>=0.32.21 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.38.3)
+#9 43.80 Requirement already satisfied: marshmallow-sqlalchemy<0.27.0,>=0.22.0 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.26.1)
+#9 43.80 Requirement already satisfied: email-validator<2,>=1.0.5 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.3.0)
+#9 43.80 Requirement already satisfied: Flask-SQLAlchemy<3,>=2.4 in /usr/local/lib/python3.9/site-packages (from flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.5.1)
+#9 43.81 Requirement already satisfied: Mako in /usr/local/lib/python3.9/site-packages (from alembic<2.0,>=1.5.1->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.2.3)
+#9 43.83 Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.9/site-packages (from cattrs>=22.1.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.0.1)
+#9 43.85 Requirement already satisfied: clickclick<21,>=1.2 in /usr/local/lib/python3.9/site-packages (from connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (20.10.2)
+#9 43.85 Requirement already satisfied: requests<3,>=2.9.1 in /usr/local/lib/python3.9/site-packages (from connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.28.1)
+#9 43.85 Requirement already satisfied: inflection<0.6,>=0.3.1 in /usr/local/lib/python3.9/site-packages (from connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.5.1)
+#9 43.85 Requirement already satisfied: PyYAML<7,>=5.1 in /usr/local/lib/python3.9/site-packages (from connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (6.0)
+#9 43.85 Requirement already satisfied: swagger-ui-bundle<0.1,>=0.0.2 in /usr/local/lib/python3.9/site-packages (from connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.0.9)
+#9 43.86 Requirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.9/site-packages (from cryptography>=0.9.3->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.15.1)
+#9 43.87 Requirement already satisfied: wrapt<2,>=1.10 in /usr/local/lib/python3.9/site-packages (from deprecated>=1.2.13->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.14.1)
+#9 43.87 Requirement already satisfied: importlib-metadata>=3.6.0 in /usr/local/lib/python3.9/site-packages (from flask<2.3,>=2.2->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (5.0.0)
+#9 43.88 Requirement already satisfied: cachelib>=0.9.0 in /usr/local/lib/python3.9/site-packages (from flask-caching>=1.5.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.9.0)
+#9 43.89 Requirement already satisfied: setuptools>=3.0 in /usr/local/lib/python3.9/site-packages (from gunicorn>=20.1.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (58.1.0)
+#9 43.90 Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 in /usr/local/lib/python3.9/site-packages (from jsonschema>=3.2.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.19.2)
+#9 43.91 Requirement already satisfied: uc-micro-py in /usr/local/lib/python3.9/site-packages (from linkify-it-py>=2.0.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.0.1)
+#9 43.93 Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.9/site-packages (from markdown-it-py>=2.1.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.1.2)
+#9 43.95 Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.9/site-packages (from packaging>=14.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.0.9)
+#9 43.95 Requirement already satisfied: pytzdata>=2020.1 in /usr/local/lib/python3.9/site-packages (from pendulum>=2.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2020.1)
+#9 43.98 Requirement already satisfied: docutils in /usr/local/lib/python3.9/site-packages (from python-daemon>=2.2.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.19)
+#9 43.98 Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.9/site-packages (from python-dateutil>=2.3->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.16.0)
+#9 43.99 Requirement already satisfied: text-unidecode>=1.3 in /usr/local/lib/python3.9/site-packages (from python-slugify>=5.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.3)
+#9 43.99 Requirement already satisfied: commonmark<0.10.0,>=0.9.0 in /usr/local/lib/python3.9/site-packages (from rich>=12.4.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.9.1)
+#9 44.05 Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.9/site-packages (from sqlalchemy>=1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.0.1)
+#9 44.07 Requirement already satisfied: sqlparse>=0.4.2 in /usr/local/lib/python3.9/site-packages (from apache-airflow-providers-common-sql->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.4.3)
+#9 44.08 Requirement already satisfied: requests-toolbelt in /usr/local/lib/python3.9/site-packages (from apache-airflow-providers-http->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.10.1)
+#9 44.10 Requirement already satisfied: certifi in /usr/local/lib/python3.9/site-packages (from httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2022.9.24)
+#9 44.10 Requirement already satisfied: rfc3986[idna2008]<2,>=1.3 in /usr/local/lib/python3.9/site-packages (from httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.5.0)
+#9 44.10 Requirement already satisfied: sniffio in /usr/local/lib/python3.9/site-packages (from httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.3.0)
+#9 44.10 Requirement already satisfied: httpcore<0.16.0,>=0.15.0 in /usr/local/lib/python3.9/site-packages (from httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.15.0)
+#9 44.12 Requirement already satisfied: pycparser in /usr/local/lib/python3.9/site-packages (from cffi>=1.12->cryptography>=0.9.3->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.21)
+#9 44.13 Requirement already satisfied: idna>=2.0.0 in /usr/local/lib/python3.9/site-packages (from email-validator<2,>=1.0.5->flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.4)
+#9 44.13 Requirement already satisfied: dnspython>=1.15.0 in /usr/local/lib/python3.9/site-packages (from email-validator<2,>=1.0.5->flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.2.1)
+#9 44.14 Requirement already satisfied: Babel>=2.3 in /usr/local/lib/python3.9/site-packages (from Flask-Babel<3,>=1->flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.11.0)
+#9 44.14 Requirement already satisfied: pytz in /usr/local/lib/python3.9/site-packages (from Flask-Babel<3,>=1->flask-appbuilder==4.1.4->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2022.6)
+#9 44.15 Requirement already satisfied: h11<0.13,>=0.11 in /usr/local/lib/python3.9/site-packages (from httpcore<0.16.0,>=0.15.0->httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (0.12.0)
+#9 44.15 Requirement already satisfied: anyio==3.* in /usr/local/lib/python3.9/site-packages (from httpcore<0.16.0,>=0.15.0->httpx->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.6.2)
+#9 44.18 Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.9/site-packages (from importlib-metadata>=3.6.0->flask<2.3,>=2.2->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (3.10.0)
+#9 44.22 Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.9/site-packages (from requests<3,>=2.9.1->connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (1.26.12)
+#9 44.22 Requirement already satisfied: charset-normalizer<3,>=2 in /usr/local/lib/python3.9/site-packages (from requests<3,>=2.9.1->connexion[flask,swagger-ui]>=2.10.0->apache-airflow>=2.2.0->airflow-provider-kafka->-r requirements.txt (line 1)) (2.1.1)
+#9 44.36 Building wheels for collected packages: confluent-kafka
+#9 44.37   Building wheel for confluent-kafka (setup.py): started
+#9 44.57   Building wheel for confluent-kafka (setup.py): finished with status 'error'
+#9 44.58   error: subprocess-exited-with-error
+#9 44.58   
+#9 44.58   × python setup.py bdist_wheel did not run successfully.
+#9 44.58   │ exit code: 1
+#9 44.58   ╰─> [48 lines of output]
+#9 44.58       running bdist_wheel
+#9 44.58       running build
+#9 44.58       running build_py
+#9 44.58       creating build
+#9 44.58       creating build/lib.linux-aarch64-3.9
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka
+#9 44.58       copying src/confluent_kafka/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 44.58       copying src/confluent_kafka/deserializing_consumer.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 44.58       copying src/confluent_kafka/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 44.58       copying src/confluent_kafka/serializing_producer.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/avro.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/schema_registry_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/protobuf.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       copying src/confluent_kafka/schema_registry/json_schema.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 44.58       copying src/confluent_kafka/kafkatest/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 44.58       copying src/confluent_kafka/kafkatest/verifiable_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 44.58       copying src/confluent_kafka/kafkatest/verifiable_producer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 44.58       copying src/confluent_kafka/kafkatest/verifiable_consumer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 44.58       copying src/confluent_kafka/avro/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 44.58       copying src/confluent_kafka/avro/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 44.58       copying src/confluent_kafka/avro/load.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 44.58       copying src/confluent_kafka/avro/cached_schema_registry_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/serialization
+#9 44.58       copying src/confluent_kafka/serialization/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/serialization
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 44.58       copying src/confluent_kafka/admin/_acl.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 44.58       copying src/confluent_kafka/admin/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 44.58       copying src/confluent_kafka/admin/_config.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 44.58       copying src/confluent_kafka/admin/_resource.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 44.58       creating build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 44.58       copying src/confluent_kafka/avro/serializer/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 44.58       copying src/confluent_kafka/avro/serializer/message_serializer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 44.58       running build_ext
+#9 44.58       building 'confluent_kafka.cimpl' extension
+#9 44.58       creating build/temp.linux-aarch64-3.9
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka
+#9 44.58       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src
+#9 44.58       gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.9 -c /tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src/Admin.c -o build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src/Admin.o
+#9 44.58       error: command 'gcc' failed: No such file or directory
+#9 44.58       [end of output]
+#9 44.58   
+#9 44.58   note: This error originates from a subprocess, and is likely not a problem with pip.
+#9 44.58   Running setup.py clean for confluent-kafka
+#9 44.58   ERROR: Failed building wheel for confluent-kafka
+#9 44.76 Failed to build confluent-kafka
+#9 45.22 Installing collected packages: confluent-kafka, airflow-provider-kafka
+#9 45.22   Running setup.py install for confluent-kafka: started
+#9 45.41   Running setup.py install for confluent-kafka: finished with status 'error'
+#9 45.42   error: subprocess-exited-with-error
+#9 45.42   
+#9 45.42   × Running setup.py install for confluent-kafka did not run successfully.
+#9 45.42   │ exit code: 1
+#9 45.42   ╰─> [48 lines of output]
+#9 45.42       running install
+#9 45.42       running build
+#9 45.42       running build_py
+#9 45.42       creating build
+#9 45.42       creating build/lib.linux-aarch64-3.9
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka
+#9 45.42       copying src/confluent_kafka/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 45.42       copying src/confluent_kafka/deserializing_consumer.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 45.42       copying src/confluent_kafka/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 45.42       copying src/confluent_kafka/serializing_producer.py -> build/lib.linux-aarch64-3.9/confluent_kafka
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/avro.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/schema_registry_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/protobuf.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       copying src/confluent_kafka/schema_registry/json_schema.py -> build/lib.linux-aarch64-3.9/confluent_kafka/schema_registry
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 45.42       copying src/confluent_kafka/kafkatest/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 45.42       copying src/confluent_kafka/kafkatest/verifiable_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 45.42       copying src/confluent_kafka/kafkatest/verifiable_producer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 45.42       copying src/confluent_kafka/kafkatest/verifiable_consumer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/kafkatest
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 45.42       copying src/confluent_kafka/avro/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 45.42       copying src/confluent_kafka/avro/error.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 45.42       copying src/confluent_kafka/avro/load.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 45.42       copying src/confluent_kafka/avro/cached_schema_registry_client.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/serialization
+#9 45.42       copying src/confluent_kafka/serialization/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/serialization
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 45.42       copying src/confluent_kafka/admin/_acl.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 45.42       copying src/confluent_kafka/admin/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 45.42       copying src/confluent_kafka/admin/_config.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 45.42       copying src/confluent_kafka/admin/_resource.py -> build/lib.linux-aarch64-3.9/confluent_kafka/admin
+#9 45.42       creating build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 45.42       copying src/confluent_kafka/avro/serializer/__init__.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 45.42       copying src/confluent_kafka/avro/serializer/message_serializer.py -> build/lib.linux-aarch64-3.9/confluent_kafka/avro/serializer
+#9 45.42       running build_ext
+#9 45.42       building 'confluent_kafka.cimpl' extension
+#9 45.42       creating build/temp.linux-aarch64-3.9
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka
+#9 45.42       creating build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src
+#9 45.42       gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.9 -c /tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src/Admin.c -o build/temp.linux-aarch64-3.9/tmp/pip-install-sehij1zv/confluent-kafka_c9f5e2d8623b465db4996862dee3fc67/src/confluent_kafka/src/Admin.o
+#9 45.42       error: command 'gcc' failed: No such file or directory
+#9 45.42       [end of output]
+#9 45.42   
+#9 45.42   note: This error originates from a subprocess, and is likely not a problem with pip.
+#9 45.42 error: legacy-install-failure
+#9 45.42 
+#9 45.42 × Encountered error while trying to install package.
+#9 45.42 ╰─> confluent-kafka
+#9 45.42 
+#9 45.42 note: This is an issue with the package mentioned above, not pip.
+#9 45.42 hint: See above for output from the failure.
+------
+executor failed running [/bin/bash -o pipefail -e -u -x -c if grep -Eqx 'apache-airflow\s*[=~>]{1,2}.*' requirements.txt; then     echo >&2 "Do not upgrade by specifying 'apache-airflow' in your requirements.txt, change the base image instead!";  exit 1;   fi;   pip install --no-cache-dir -r requirements.txt]: exit code: 1
+Error: command 'docker build -t airflow-kafka-sandbox_c30f7b/airflow:latest failed: failed to execute cmd: exit status 1

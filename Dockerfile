@@ -1,10 +1,8 @@
-FROM quay.io/astronomer/astro-runtime:6.0.4
+FROM quay.io/astronomer/astro-runtime:6.0.3-base
 
-RUN git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew \
-&& mkdir ~/.linuxbrew/bin \
-&& ln -s ../Homebrew/bin/brew ~/.linuxbrew/bin \
-&& eval $(~/.linuxbrew/bin/brew shellenv) \
-&& brew --version
-RUN brew install librdkafka
+RUN apt-get update
+RUN apt install librdkafka-dev -y
 ENV C_INCLUDE_PATH=/opt/homebrew/Cellar/librdkafka/1.8.2/include
 ENV LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/1.8.2/lib
+RUN pip install confluent-kafka
+RUN pip install airflow-provider-kafka
