@@ -1,5 +1,3 @@
-# provider_example_code.py
-
 import functools
 import json
 import logging
@@ -26,8 +24,8 @@ default_args = {
 
 
 def producer_function():
-    for i in range(10):
-        yield (json.dumps(i), json.dumps(i+1))
+    for i in range(5):
+        yield (json.dumps(i), json.dumps("produced by Airflow"))
 
 
 
@@ -41,17 +39,16 @@ def consumer_function(message, prefix=None):
     except:
         return
 
-def await_function_CHANGED_NAME(message):
-    if isinstance(json.loads(message.value()), int):
-        if json.loads(message.value()) % 5 == 0:
-            return f" Got the following message: {json.loads(message.value())}"
+def await_function(message):
+    if json.loads(message.value()) % 5 == 0:
+        return f" Got the following message: {json.loads(message.value())}"
 
 def hello_kafka():
     print("Hello Kafka !")
     return
 
 with DAG(
-    "kafka-example",
+    "local-kafka-example",
     default_args=default_args,
     description="Examples of Kafka Operators",
     schedule_interval=timedelta(days=1),
@@ -64,10 +61,6 @@ with DAG(
 
     config_kwargs = {
         "bootstrap.servers": "pkc-zpjg0.eu-central-1.aws.confluent.cloud:9092",
-        "security.protocol": "SASL_SSL",
-        "sasl.mechanism": "PLAIN",
-        "sasl.username": "S2K7CVGYDO4BHCXK",
-        "sasl.password": "f7v4JotEAJhP2K2l6TurgNWf09CgXupXDcgwU/OtJRaek83QNzHWzqN3WvPnMAi3",
         }
 
     t3 = ProduceToTopicOperator(
@@ -83,10 +76,6 @@ with DAG(
         apply_function=functools.partial(consumer_function, prefix="consumed:::"),
         consumer_config={
             "bootstrap.servers": "pkc-zpjg0.eu-central-1.aws.confluent.cloud:9092",
-            "security.protocol": "SASL_SSL",
-            "sasl.mechanism": "PLAIN",
-            "sasl.username": "S2K7CVGYDO4BHCXK",
-            "sasl.password": "f7v4JotEAJhP2K2l6TurgNWf09CgXupXDcgwU/OtJRaek83QNzHWzqN3WvPnMAi3",
             "group.id": "foo",
             "enable.auto.commit": False,
             "auto.offset.reset": "beginning",
@@ -100,19 +89,13 @@ with DAG(
     t5 = AwaitKafkaMessageOperator(
         task_id="awaiting_message",
         topics=["test_topic_1"],
-        apply_function="provider_example_code.await_function_CHANGED_NAME", #this needs to be passed in as a module, function direct does not work!!!!
+        apply_function="provider_example_code.await_function", #this needs to be passed in as a module, function direct does not work!!!!
         kafka_config={
         "bootstrap.servers": "pkc-zpjg0.eu-central-1.aws.confluent.cloud:9092",
-        "security.protocol": "SASL_SSL",
-        "sasl.mechanism": "PLAIN",
-        "sasl.username": "S2K7CVGYDO4BHCXK",
-        "sasl.password": "f7v4JotEAJhP2K2l6TurgNWf09CgXupXDcgwU/OtJRaek83QNzHWzqN3WvPnMAi3",
         "group.id": "awaiting_message",
-        "enable.auto.commit": False,
-        "auto.offset.reset": "beginning",
+        "enable.auto.commit": False
     },
         xcom_push_key="retrieved_message",
-        poll_interval=1
     )
 
     t6 = PythonOperator(
