@@ -7,6 +7,7 @@ import functools
 from pendulum import datetime
 import socket
 
+from airflow.decorators import task
 from airflow import DAG
 from airflow_provider_kafka.operators.produce_to_topic import ProduceToTopicOperator
 from airflow_provider_kafka.operators.consume_from_topic import ConsumeFromTopicOperator
@@ -14,16 +15,13 @@ from airflow_provider_kafka.operators.await_message import AwaitKafkaMessageOper
 
 my_topic = "quickstart-events" #os.environ["KAFKA_TOPIC_NAME"]
 
-connection_config = {'bootstrap.servers': "host.docker.internal:9092"}
+connection_config = {'bootstrap.servers': "host.docker.internal:19092",
+    "security.protocol": "PLAINTEXT"}
 
-
-#{
-    #"bootstrap.servers": os.environ["BOOSTRAP_SERVER"],
-    #"security.protocol": "SASL_SSL",
-    #"sasl.mechanism": "PLAIN",
-    #"sasl.username": os.environ["KAFKA_API_KEY"],
-    #"sasl.password": os.environ["KAFKA_API_SECRET"]
-#}
+# with Kafka server properties:
+# listeners=PLAINTEXT://:9092,RMOFF_DOCKER_HACK://:19092
+# advertised.listeners=PLAINTEXT://localhost:9092,RMOFF_DOCKER_HACK://host.docker.internal:19092
+# listener.security.protocol.map=PLAINTEXT:PLAINTEXT,RMOFF_DOCKER_HACK:PLAINTEXT
 
 with DAG(
     dag_id="kafka_example_dag_1",
@@ -31,6 +29,16 @@ with DAG(
     schedule=None,
     catchup=False,
 ):
+
+    @task
+    def connect_http():
+        import http.client
+        connection = http.client.HTTPConnection('host.docker.internal', 8000, timeout=10)
+        connection.request("GET", "/")
+        print(connection.getresponse().status)
+        return "hi"
+
+    connect_http()
 
     def producer_function():
         for i in range(5):
